@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    <i class="fa-brands fa-facebook"></i>
     <x-frontend-header />
     <main>
         {{ $slot }}

@@ -1,3 +1,14 @@
 <x-frontend-layout>
-   <h1 class="text-9xl"> this is home page</h1>
+  <section class="py-5">
+    <div class="container">
+        <div>
+            <h1 class="text-5xl font-semibold">{{$latest_article->title}}</h1>
+        </div>
+
+        <div>
+            <img src=" {{asset(Storage::url($latest_article->image))}}" alt="helo">
+        </div>
+    </div>
+  </section>
+
 </x-frontend-layout>

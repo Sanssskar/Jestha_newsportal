@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Articles\Schemas;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Section;
@@ -19,6 +20,11 @@ class ArticleForm
                     ->columns(2)
                     ->columnSpanFull()
                     ->schema([
+                        Select::make('categories')
+                        ->multiple()
+                        ->searchable()
+                        ->preload()
+                        ->relationship('categories','title'),
                         TextInput::make('title')
                             ->required(),
                         TextInput::make('slug')
