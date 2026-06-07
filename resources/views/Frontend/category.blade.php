@@ -23,8 +23,7 @@
                 <div>
                     @foreach ($advertises as $advertise)
                         <a class="overflow-hidden" href="{{$advertise->redirect_link}}">
-                            <img class="shadow-md hover:shadow-xl duration-300 hover:scale-101 transition-all" src="{{asset(Storage::url($advertise->banner))}}" alt="">
-
+                            <img class="shadow-md hover:shadow-xl duration-300 hover:scale-101 transition-all" src="{{asset(Storage::url($advertise->banner))}}" alt="{{$advertise->company_name}} Image">
                         </a>
                     @endforeach
                 </div>
