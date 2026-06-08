@@ -3,25 +3,15 @@
         <div class="container">
             @foreach ($latest_articles as $latest_article)
                 <div>
-<<<<<<< HEAD
                     <h1 class="text-5xl font-semibold py-5">{{ $latest_article->title ?? '' }}</h1>
                 </div>
 
                 <div>
                     <img src=" {{ asset(Storage::url($latest_article->image)) }}" alt="helo">
-=======
-                    <h1 class="text-5xl py-5 font-semibold">{{ $latest_article->title ?? '' }}</h1>
-                </div>
-
-                <div>
-                    <img class="w-full h-full" src="{{ asset(Storage::url($latest_article->image ?? '')) }}"
-                        alt="helo">
->>>>>>> 7a4e38b0929d0efb47732e3e849a30c056c60208
                 </div>
             @endforeach
         </div>
     </section>
-<<<<<<< HEAD
     <section>
         <div class="container">
             @foreach ($categories as $category)
@@ -71,8 +61,6 @@
             @endforeach
         </div>
     </section>
-=======
->>>>>>> 7a4e38b0929d0efb47732e3e849a30c056c60208
 
     <section>
         <div class="container">

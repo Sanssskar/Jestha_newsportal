@@ -4,7 +4,7 @@
             <img class="w-[250px]" src="https://sudamhub.com/images/logo1.png" alt="sudamhub">
         </div>
         <div class="text-lg text-(--text)">
-            शुक्रबार, ०८ जेठ २०८३
+           {{toNepaliDate(now()->format('Y-m-d'))}}
             <div class="h-[4px] bg-(--primary) -skew-y-3">
 
             </div>
@@ -15,11 +15,7 @@
             <nav class="text-white font-semibold text-lg flex items-center gap-5 ">
                 <a class="hover:text-(--dark-primary) duration-300 transition-all" href="{{route('home')}}">गृहपृष्ठ</a>
                 @foreach ($categories as $category)
-<<<<<<< HEAD
                     <a class="hover:text-(--dark-primary) duration-300 transition-all" href="{{route('category',$category->slug)}}">{{$category->title}}</a>
-=======
-                    <a class="hover:text-(--dark-primary) duration-300 transition-all" href="{{route('category',$category->slug)}}">{{$category->title ?? '' }}</a>
->>>>>>> 7a4e38b0929d0efb47732e3e849a30c056c60208
                 @endforeach
             </nav>
 
