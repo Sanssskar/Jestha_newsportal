@@ -5,8 +5,8 @@ namespace App\Filament\Resources\Advertises\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
 class AdvertisesTable
@@ -17,12 +17,10 @@ class AdvertisesTable
             ->columns([
                 TextColumn::make('banner')
                     ->searchable(),
-                TextColumn::make('redirect_link')
-                    ->searchable(),
-                IconColumn::make('status')
-                    ->boolean(),
+                ToggleColumn::make('status'),
                 TextColumn::make('company_name')
                     ->searchable(),
+                TextColumn::make('expiry_date'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

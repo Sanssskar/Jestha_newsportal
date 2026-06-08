@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class PageController extends Controller
@@ -20,7 +19,12 @@ class PageController extends Controller
 
     public function home()
     {
-        $latest_article = Article::latest()->first();
-        return view('Frontend.home',compact('latest_article'));
+        $latest_articles = Article::where("status", true)->latest()->take(3)->get();
+        return view('Frontend.home',compact('latest_articles'));
+    }
+
+    public function category($slug){
+        $category = Category::where("slug",$slug)->first();
+        return view('Frontend.category',compact('category'));
     }
 }
