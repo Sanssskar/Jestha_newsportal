@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Advertises\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -12,7 +13,7 @@ class AdvertiseForm
     {
         return $schema
             ->components([
-                TextInput::make('banner')
+                FileUpload::make('banner')
                     ->required(),
                 TextInput::make('redirect_link')
                     ->required(),
