@@ -20,7 +20,6 @@
                         </div>
                     @endforeach
                 </div>
-<<<<<<< HEAD
                 <div>
                     @foreach ($advertises as $advertise)
                         <a class="overflow-hidden" href="{{$advertise->redirect_link}}">
@@ -28,8 +27,6 @@
                         </a>
                     @endforeach
                 </div>
-=======
->>>>>>> 50525bd6e9ea6e468855c7160d9095aa2912ea52
             </div>
         </div>
     </section>
