@@ -1,4 +1,4 @@
-<header class="py-5">
+<header class="py-5 sticky z-50 top-0 bg-white">
     <div class="container flex items-center justify-between">
         <div>
             <img class="w-[250px]" src="https://sudamhub.com/images/logo1.png" alt="sudamhub">
@@ -13,9 +13,9 @@
     <div class="bg-(--primary) p-4 mt-2">
         <div class="flex items-center justify-between container">
             <nav class="text-white font-semibold text-lg flex items-center gap-5 ">
-                <a class="hover:text-(--dark-primary) duration-300 transition-all" href="">गृहपृष्ठ</a>
+                <a class="hover:text-(--dark-primary) duration-300 transition-all" href="{{route('home')}}">गृहपृष्ठ</a>
                 @foreach ($categories as $category)
-                    <a class="hover:text-(--dark-primary) duration-300 transition-all" href="">{{$category->title}}</a>
+                    <a class="hover:text-(--dark-primary) duration-300 transition-all" href="{{route('category',$category->slug)}}">{{$category->title}}</a>
                 @endforeach
             </nav>
 

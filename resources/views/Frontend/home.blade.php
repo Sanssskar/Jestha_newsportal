@@ -1,14 +1,65 @@
 <x-frontend-layout>
-  <section class="py-5">
-    <div class="container">
-        <div>
-            <h1 class="text-5xl font-semibold">{{$latest_article->title}}</h1>
-        </div>
+    <section class="py-5">
+        <div class="container">
+            @foreach ($latest_articles as $latest_article)
+                <div>
+                    <h1 class="text-5xl font-semibold py-5">{{ $latest_article->title ?? '' }}</h1>
+                </div>
 
-        <div>
-            <img src=" {{asset(Storage::url($latest_article->image))}}" alt="helo">
+                <div>
+                    <img src=" {{ asset(Storage::url($latest_article->image)) }}" alt="helo">
+                </div>
+            @endforeach
         </div>
-    </div>
-  </section>
+    </section>
+    <section>
+        <div class="container">
+            @foreach ($categories as $category)
+                <div>
+                    <h2 class="text-3xl font-semibold border-l-[5px] border-l-(--primary) text-(--primary) pl-2 my-3">
+                        {{ $category->title }}
+                    </h2>
+
+                    @php
+                        $latest_cat_art = $category->articles()->where('status', true)->latest()->first();
+                        $other_articles = $category
+                            ->articles()
+                            ->where('status', true)
+                            ->latest()
+                            ->skip(1)
+                            ->take(4)
+                            ->get();
+                    @endphp
+
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="col-span-2">
+
+                            <img src="{{ asset(Storage::url($latest_cat_art->image)) }}"
+                                alt="{{ $latest_cat_art->title }}" class="w-full">
+
+                            <h3 class="text-lg text-(--text) mt-3">
+                                {{ $latest_cat_art->title }}
+                            </h3>
+                        </div>
+
+                        <div>
+                            @foreach ($other_articles as $article)
+                                <div class="grid grid-cols-3 gap-2 shadow-md">
+                                    <img src="{{asset(Storage::url($article->image))}}" alt="{{$article->title}} Image">
+                                    <div class="col-span-2">
+                                        <h3>{{$article->title}}</h3>
+                                        <small><i class="fa-solid fa-calendar-days"></i>{{$article->created_at}}</small>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
 
 </x-frontend-layout>
