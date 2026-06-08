@@ -1,7 +1,7 @@
 <x-frontend-layout>
     <section>
         <div class="container">
-            <div class="grid grid-cols-3">
+            <div class="grid grid-cols-3 gap-x-3">
                 <div class="col-span-2">
                     @foreach ($category->articles()->latest()->get() as $article)
                         <div class="grid grid-cols-3 gap-2 shadow-lg mt-3">
@@ -22,9 +22,11 @@
                 </div>
                 <div>
                     @foreach ($advertises as $advertise)
-                        <a class="overflow-hidden" href="{{$advertise->redirect_link}}">
+                      <div class="overflow-hidden mb-3" >
+                          <a href="{{$advertise->redirect_link}}" target="_blank">
                             <img class="shadow-md hover:shadow-xl duration-300 hover:scale-101 transition-all" src="{{asset(Storage::url($advertise->banner))}}" alt="{{$advertise->company_name}} Image">
                         </a>
+                      </div>
                     @endforeach
                 </div>
             </div>

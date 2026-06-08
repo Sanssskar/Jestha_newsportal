@@ -7,7 +7,7 @@
                 </div>
 
                 <div>
-                    <img src=" {{ asset(Storage::url($latest_article->image)) }}" alt="helo">
+                    <img class="w-full" src=" {{ asset(Storage::url($latest_article->image)) }}" alt="helo">
                 </div>
             @endforeach
         </div>
@@ -49,7 +49,7 @@
                                     <img src="{{asset(Storage::url($article->image))}}" alt="{{$article->title}} Image">
                                     <div class="col-span-2">
                                         <h3>{{$article->title}}</h3>
-                                        <small><i class="fa-solid fa-calendar-days"></i>{{$article->created_at}}</small>
+                                        <small><i class="fa-solid fa-calendar-days"></i>{{toNepaliDate($article->created_at->format('Y-m-d'))}}</small>
                                     </div>
                                 </div>
                             @endforeach
