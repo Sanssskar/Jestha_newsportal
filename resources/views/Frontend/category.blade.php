@@ -13,8 +13,8 @@
                                 <div class="flex flex-col gap-y-3">
                                     <small class="font-semibold"><i class="fa-solid fa-calendar-days"></i> प्रकाशित
                                         मितिः
-                                        सोमबार, २५ जेठ २०८३</small>
-                                    <a href=""><i class="fa-regular fa-hand-pointer"></i> पुरा पढ्नुहोस्</a>
+                                      {{toNepaliDate($article->created_at->format('Y-m-d'))}}</small>
+                                    <a href="{{route('article',$article->slug)}}"><i class="fa-regular fa-hand-pointer"></i> पुरा पढ्नुहोस्</a>
                                 </div>
                             </div>
                         </div>

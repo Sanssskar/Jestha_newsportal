@@ -27,15 +27,22 @@ class PageController extends Controller
     public function category($slug)
     {
         // return $slug;
-        $category = Category::where("slug", $slug)->latest()->first();
+        $category = Category::where("slug", $slug)->first();
         $advertises = Advertise::where("expiry_date", ">=", time())->get();
         return view('Frontend.category', compact('category', 'advertises'));
     }
     public function search(Request $request)
     {
         $q = $request->q;
-        $articles = Article::where("title", 'like', "%q%")->latest()->get();
+        $articles = Article::where("title", "like", "%$q%")->latest()->get();
         $advertises = Advertise::where("expiry_date", ">=", time())->get();
-        return view('Frontend.search', compact('articles', 'advertises'));
+        return view('Frontend.search', compact('articles', 'advertises', 'q'));
+    }
+    public function article($slug)
+    {
+        // return $slug;
+        $article = Article::where("slug", $slug)->first();
+        $advertises = Advertise::where("expiry_date", ">=", time())->get();
+        return view('Frontend.article', compact('article', 'advertises'));
     }
 }

@@ -1,4 +1,4 @@
-<header class="py-5 sticky z-50 top-0 bg-white">
+<header class="my-5 sticky z-50 top-0 bg-white">
     <div class="container flex items-center justify-between">
         <div>
             <img class="w-[250px]" src="https://sudamhub.com/images/logo1.png" alt="sudamhub">
