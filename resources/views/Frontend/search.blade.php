@@ -1,9 +1,10 @@
 <x-frontend-layout>
     <section>
         <div class="container">
+            <h1 class="text-3xl font-bold">Search results for : {{$q}}</h1>
             <div class="grid grid-cols-3 gap-3">
                 <div class="col-span-2">
-                    @foreach ($category->articles()->latest()->get() as $article)
+                    @foreach ($articles as $article)
                         <div class="grid grid-cols-3 gap-2 shadow-lg mt-3">
                             <img class="h-[220px] object-cover w-full" src="{{ asset(Storage::url($article->image)) }}"
                                 alt="{{ $article->title }} Image">

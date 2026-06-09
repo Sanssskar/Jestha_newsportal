@@ -13,7 +13,7 @@ return [
     | Supported format characters can be found at:
     | https://laravel-nepali-date.anuzpandey.com/docs/formatting/format-strings
     */
-    'default_format' => 'Y-m-d',
+    'default_format' => 'l, j F Y',
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ return [
     | English or 'np' for Nepali, ascertaining consistent presentation.
     |
     */
-    'default_locale' => 'en',
+    'default_locale' => 'np',
 
     /*
     |--------------------------------------------------------------------------

@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('advertises', function (Blueprint $table) {
-             $table->id();
-        $table->string('banner');
-        $table->string('redirect_link');
-        $table->boolean('status')->default(true);
-        $table->string('company_name');
+            $table->id();
+            $table->string('banner');
+            $table->string('redirect_link');
+            $table->boolean('status')->default(true);
+            $table->string('company_name');
+            $table->date('expiry_date');
             $table->timestamps();
         });
     }
