@@ -2,13 +2,15 @@
     <section class="py-5">
         <div class="container">
             @foreach ($latest_articles as $latest_article)
-                <div>
-                    <h1 class="text-5xl font-semibold py-5">{{ $latest_article->title ?? '' }}</h1>
-                </div>
+                <a href="{{ route('article', $latest_article->slug) }}">
+                    <div>
+                        <h1 class="text-5xl font-semibold py-5">{{ $latest_article->title ?? '' }}</h1>
+                    </div>
 
-                <div>
-                    <img class="w-full" src=" {{ asset(Storage::url($latest_article->image)) }}" alt="helo">
-                </div>
+                    <div>
+                        <img class="w-full" src=" {{ asset(Storage::url($latest_article->image)) }}" alt="helo">
+                    </div>
+                </a>
             @endforeach
         </div>
     </section>
@@ -46,15 +48,17 @@
 
                         <div>
                             @foreach ($other_articles as $article)
-                                <div class="grid grid-cols-3 gap-2 shadow-md">
-                                    <img src="{{ asset(Storage::url($article->image)) }}"
-                                        alt="{{ $article->title }} Image">
-                                    <div class="col-span-2">
-                                        <h3>{{ $article->title }}</h3>
-                                        <small><i
-                                                class="fa-solid fa-calendar-days"></i>{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</small>
+                                <a class="inline-block mb-3" href="{{ route('article', $article->slug) }}">
+                                    <div class="grid grid-cols-3 gap-2 shadow-md">
+                                        <img class="h-[86px] w-full object-cover" src="{{ asset(Storage::url($article->image)) }}"
+                                            alt="{{ $article->title }} Image">
+                                        <div class="col-span-2">
+                                            <h3>{{ $article->title }}</h3>
+                                            <small><i
+                                                    class="fa-solid fa-calendar-days"></i>{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</small>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
 
@@ -67,3 +71,9 @@
 
 
 </x-frontend-layout>
+
+//form validation
+// payment integration -> khalti
+// mail
+// seo ra responsive 
+

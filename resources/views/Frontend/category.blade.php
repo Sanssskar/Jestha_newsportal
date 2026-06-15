@@ -10,11 +10,11 @@
                             <div class="col-span-2 p-5 space-y-2">
                                 <h2 class="text-2xl font-semibold">{{ $article->title }}</h2>
                                 <p class="text-(--text)/70 line-clamp-2">{!! Str::limit($article->description, 120, '...') !!}</p>
-                                <div class="flex flex-col gap-y-3">
-                                    <small class="font-semibold"><i class="fa-solid fa-calendar-days"></i> प्रकाशित
+                                <div class="flex flex-col  gap-y-3">
+                                    <small class="font-semibold"><i class="fa-solid fa-calendar-days fa-lg text-(--primary)"></i> प्रकाशित
                                         मितिः
                                         {{ toNepaliDate($article->created_at->format('Y-m-d')) }}</small>
-                                    <a href=""><i class="fa-regular fa-hand-pointer"></i> पुरा पढ्नुहोस्</a>
+                                    <a class="font-semibold" href="{{route('article',$article->slug)}}"><i class="fa-regular fa-hand-pointer fa-lg text-(--primary)"></i> पुरा पढ्नुहोस्</a>
                                 </div>
                             </div>
                         </div>

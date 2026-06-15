@@ -4,11 +4,7 @@
             <img class="w-[250px]" src="https://sudamhub.com/images/logo1.png" alt="sudamhub">
         </div>
         <div class="text-lg text-(--text)">
-<<<<<<< HEAD
           {{toNepaliDate(now()->format('Y-m-d'))}}
-=======
-           {{toNepaliDate(now()->format('Y-m-d'))}}
->>>>>>> 8b146641e214b8d0058c3f65b004ac7fcef8463b
             <div class="h-[4px] bg-(--primary) -skew-y-3">
 
             </div>
@@ -21,13 +17,10 @@
                 @foreach ($categories as $category)
                     <a class="hover:text-(--dark-primary) duration-300 transition-all" href="{{route('category',$category->slug)}}">{{$category->title}}</a>
                 @endforeach
+                <a href="{{route('contact')}}">सम्पर्क</a>
             </nav>
 
-<<<<<<< HEAD
             <form class="w-sm" action="{{route('search')}}" method="get">
-=======
-            <form action="{{route('search')}}" method="GET" class="w-sm ">
->>>>>>> 8b146641e214b8d0058c3f65b004ac7fcef8463b
                 <label for="search" class="block mb-2.5 text-sm font-medium text-heading sr-only ">Search</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
