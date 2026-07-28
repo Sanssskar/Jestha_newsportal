@@ -72,8 +72,4 @@
 
 </x-frontend-layout>
 
-//form validation
-// payment integration -> khalti
-// mail
-// seo ra responsive 
 

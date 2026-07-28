@@ -21,10 +21,33 @@ class ArticleForm
                     ->columnSpanFull()
                     ->schema([
                         Select::make('categories')
-                        ->multiple()
-                        ->searchable()
-                        ->preload()
-                        ->relationship('categories','title'),
+                            ->multiple()
+                            ->searchable()
+                            ->preload()
+                            ->createOptionForm([
+                                Section::make([
+                                    TextInput::make('title')
+                                        ->required(),
+                                    TextInput::make('slug')
+                                        ->required(),
+                                ])->columns(2)->columnSpanFull()->label('General')->description("Input category title and slug"),
+
+                                Section::make('Meta information')
+                                    ->columns(2)
+                                    ->columnSpanFull()
+                                    ->description("meta information input from here")
+                                    ->schema([
+                                        TextInput::make('meta_title')
+                                            ->default(null),
+                                        Textarea::make('meta_keytwords')
+                                            ->default(null)
+                                            ->columnSpanFull(),
+                                        Textarea::make('meta_description')
+                                            ->default(null)
+                                            ->columnSpanFull(),
+                                    ])
+                            ])
+                            ->relationship('categories', 'title'),
                         TextInput::make('title')
                             ->required(),
                         TextInput::make('slug')
