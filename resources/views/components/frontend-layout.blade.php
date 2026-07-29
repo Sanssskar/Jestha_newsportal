@@ -18,6 +18,7 @@
 </head>
 
 <body class="bg-paper text-ink antialiased">
+    @include('sudam-sweet-alert::alert')
     <x-frontend-header />
     <main>
         {{ $slot }}
