@@ -1,5 +1,4 @@
 <x-frontend-layout>
-    {{-- Hero: lead story + secondary headlines --}}
     <section class="py-8">
         <div class="container">
             @php
@@ -18,8 +17,8 @@
                             {{ $heroArticle->title }}
                         </h1>
                         <p class="text-base text-black mt-3 flex items-center gap-2">
-                            <i class="fa-solid fa-calendar-days text-forest"></i>
-                            {{ toNepaliDate($heroArticle->created_at->format('Y-m-d')) }}
+                            <i class="fa-regular fa-calendar-days text-forest"></i>
+                            <span class="text-black">{{ toNepaliDate($heroArticle->created_at->format('Y-m-d')) }}</span>
                         </p>
                     </a>
 
@@ -32,7 +31,10 @@
                                     <h3 class="font-headline text-lg font-semibold leading-snug group-hover:text-forest transition-colors line-clamp-3">
                                         {{ $article->title }}
                                     </h3>
-                                    <p class="text-sm text-muted mt-2">{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</p>
+                                    <p class="text-sm text-black mt-2 flex items-center gap-1.5">
+                                        <i class="fa-regular fa-calendar-days text-forest"></i>
+                                        <span>{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</span>
+                                    </p>
                                 </div>
                             </a>
                         @endforeach
@@ -49,7 +51,7 @@
             $other_articles = $category->articles()->where('status', true)->latest()->skip(1)->take(4)->get();
         @endphp
         @if ($latest_cat_art)
-            <section class="py-10 {{ $loop->even ? 'bg-sand' : '' }}">
+            <section class="py-10 {{ $loop->index % 2 == 0 ? 'bg-sand' : '' }}">
                 <div class="container">
                     <div class="flex items-center justify-between mb-6">
                         <h2 class="eyebrow text-2xl sm:text-3xl font-headline font-bold text-ink">
@@ -73,7 +75,10 @@
                                 <h3 class="font-headline text-2xl font-semibold text-ink group-hover:text-forest transition-colors">
                                     {{ $latest_cat_art->title }}
                                 </h3>
-                                <p class="text-sm text-black mt-2"><i class="fa-solid fa-calendar-days mr-2 text-forest"></i>{{ toNepaliDate($latest_cat_art->created_at->format('Y-m-d')) }}</p>
+                                <p class="text-sm text-black mt-2 flex items-center gap-1.5">
+                                    <i class="fa-regular fa-calendar-days text-forest"></i>
+                                    <span class="text-black">{{ toNepaliDate($latest_cat_art->created_at->format('Y-m-d')) }}</span>
+                                </p>
                             </div>
                         </a>
 
@@ -87,7 +92,8 @@
                                             {{ $article->title }}
                                         </h3>
                                         <small class="text-sm text-black mt-1.5 inline-flex items-center gap-1">
-                                            <i class="fa-solid fa-calendar-days text-forest"></i>{{ toNepaliDate($article->created_at->format('Y-m-d')) }}
+                                            <i class="fa-regular fa-calendar-days text-forest"></i>
+                                            <span class="text-black">{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</span>
                                         </small>
                                     </div>
                                 </a>

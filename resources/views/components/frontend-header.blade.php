@@ -11,7 +11,7 @@
         </a>
 
         <div class="flex items-center gap-4">
-            <form class="max-w-md">
+            <form action="{{ route('search') }}" method="GET" class="max-w-md">
                 <label for="search" class="block mb-2.5 text-sm font-medium text-heading sr-only">Search</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -21,10 +21,10 @@
                                 d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
-                    <input type="search" id="search"
+                    <input type="search" name="q" id="search"
                         class="block w-full p-3 ps-9 bg-sand border border-line text-ink text-sm rounded-base focus:ring-2 focus:ring-forest focus:border-forest shadow-sm placeholder:text-black"
                         placeholder="Search" required />
-                    <button type="button"
+                    <button type="submit"
                         class="absolute end-1.5 bottom-1.5 text-paper bg-forest hover:bg-forest-dark focus:ring-4 focus:ring-forest-light border border-transparent shadow-sm font-medium leading-5 rounded text-xs px-3 py-1.5 focus:outline-none transition-colors duration-200">Search</button>
                 </div>
             </form>
@@ -65,7 +65,7 @@
                     href="{{ route('category', $category->slug) }}">{{ $category->title }}</a>
             @endforeach
             <a class="py-2.5 border-b border-line text-lg" href="{{ route('contact') }}">सम्पर्क</a>
-            <form class="pt-3" action="{{ route('search') }}" method="get">
+            <form class="pt-3" action="{{ route('search') }}" method="GET">
                 <div class="relative">
                     <input type="search" name="q"
                         class="block w-full py-2.5 ps-4 pe-10 bg-sand border border-line text-ink text-base rounded-full focus:outline-none focus:border-forest placeholder:text-black"

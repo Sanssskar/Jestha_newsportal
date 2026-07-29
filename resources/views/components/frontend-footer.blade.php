@@ -1,4 +1,4 @@
-<footer class="bg-ink text-white mt-16">
+<footer class="bg-ink text-white ">
     <div class="container py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
             <div class="flex items-center gap-2.5 mb-3">

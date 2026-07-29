@@ -9,7 +9,6 @@
     --font-sans: 'Hind', 'Noto Sans Devanagari', ui-sans-serif, system-ui, sans-serif;
     --font-serif: 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', ui-serif, Georgia, serif;
 
-
     --color-ink: #1A2E22;
     --color-paper: #FFFFFF;
     --color-sand: #F5F1E6;
@@ -37,18 +36,18 @@
     }
 
     body {
-        background-color: #FFFFFF;
-        color: #1A2E22;
+        background-color: var(--color-paper);
+        color: var(--color-text);
         font-family: var(--font-sans);
     }
 
     ::selection {
-        background-color: #FEF3C7;
-        color: #1A2E22;
+        background-color: var(--color-marigold-soft);
+        color: var(--color-ink);
     }
 
     :focus-visible {
-        outline: 2px solid #D97706;
+        outline: 2px solid var(--color-marigold);
         outline-offset: 2px;
     }
 }
@@ -71,12 +70,12 @@
         font-size: 0.95rem;
         font-weight: 700;
         letter-spacing: 0.03em;
-        color: #15803D;
+        color: var(--color-forest);
     }
 
     .bud-mark {
         flex-shrink: 0;
-        color: #D97706;
+        color: var(--color-marigold);
     }
 
     .card-article {
@@ -85,7 +84,7 @@
 
     .card-article:hover {
         transform: translateY(-3px);
-        border-color: #15803D;
+        border-color: var(--color-forest);
         box-shadow: 0 12px 28px -14px rgba(26, 46, 34, 0.3);
     }
 
@@ -96,16 +95,23 @@
         font-size: 0.85rem;
         font-weight: 700;
         letter-spacing: 0.01em;
-        color: #0F5C2C;
-        background: #DCFCE7;
+        color: var(--color-forest-dark);
+        background: var(--color-forest-light);
         padding: 0.3rem 0.75rem;
         border-radius: 999px;
     }
 }
-span , small{
-    color: black;
+
+/* Make span and small text black using variable */
+span,
+small {
+    color: var(--color-ink);
 }
 
 @media print {
-    header, footer, .no-print { display: none !important; }
+    header,
+    footer,
+    .no-print {
+        display: none !important;
+    }
 }

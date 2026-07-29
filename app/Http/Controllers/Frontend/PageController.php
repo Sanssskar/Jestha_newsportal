@@ -14,7 +14,7 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $categories = Category::where("status", true)->get();
+        $categories = Category::query()->where("status", true)->get();
         View::share([
             "categories" => $categories
         ]);
@@ -22,26 +22,26 @@ class PageController extends Controller
 
     public function home()
     {
-        $latest_articles = Article::where("status", true)->latest()->take(3)->get();
+        $latest_articles = Article::query()->where("status", true)->latest()->take(3)->get();
         return view('Frontend.home', compact('latest_articles'));
     }
     public function category($slug)
     {
-        $category = Category::where("slug", $slug)->first();
-        $advertises = Advertise::where("expiry_date", ">=", time())->get();
+        $category = Category::query()->where("slug", $slug)->first();
+        $advertises = Advertise::query()->where("expiry_date", ">=", time())->get();
         return view('Frontend.category', compact('category', 'advertises'));
     }
     public function search(Request $request)
     {
         $q = $request->q;
-        $articles = Article::where("title", "like", "%$q%")->get();
-        $advertises = Advertise::where("expiry_date", ">=", time())->get();
+        $articles = Article::query()->where("title", "like", "%$q%")->get();
+        $advertises = Advertise::query()->where("expiry_date", ">=", time())->get();
         return view('Frontend.search', compact('articles', 'advertises', 'q'));
     }
     public function article($slug)
     {
-        $article = Article::where("slug", $slug)->first();
-        $advertises = Advertise::where("expiry_date", ">=", time())->get();
+        $article = Article::query()->where("slug", $slug)->first();
+        $advertises = Advertise::query()->where("expiry_date", ">=", time())->get();
         return view('Frontend.article', compact('article', 'advertises'));
     }
     public function contact(){
