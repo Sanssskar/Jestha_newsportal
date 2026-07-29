@@ -31,36 +31,57 @@
                 @csrf
                 <div>
                     <label class="block text-base font-semibold mb-1.5" for="name" style="color: #1A2E22 !important;">नाम</label>
-                    <input class="w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="text" name="name" id="name">
+                    <input class="w-full rounded-lg border @error('name') border-red-500 @else border-line @enderror bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="text" name="name" id="name" value="{{ old('name') }}">
+                    @error('name')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label class="block text-base font-semibold mb-1.5" for="email" style="color: #1A2E22 !important;">इमेल</label>
-                    <input class="w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="email" name="email" id="email">
+                    <input class="w-full rounded-lg border @error('email') border-red-500 @else border-line @enderror bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="email" name="email" id="email" value="{{ old('email') }}">
+                    @error('email')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label class="block text-base font-semibold mb-1.5" for="phone" style="color: #1A2E22 !important;">फोन</label>
-                    <input class="w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="number" name="phone" id="phone">
+                    <input class="w-full rounded-lg border @error('phone') border-red-500 @else border-line @enderror bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="text" name="phone" id="phone" value="{{ old('phone') }}">
+                    @error('phone')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label class="block text-base font-semibold mb-1.5" for="company_name" style="color: #1A2E22 !important;">कम्पनीको नाम</label>
-                    <input class="w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="text" name="company_name" id="company_name">
+                    <input class="w-full rounded-lg border @error('company_name') border-red-500 @else border-line @enderror bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" type="text" name="company_name" id="company_name" value="{{ old('company_name') }}">
+                    @error('company_name')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label class="block text-base font-semibold mb-1.5" for="banner" style="color: #1A2E22 !important;">ब्यानर</label>
-                    <input class="w-full rounded-lg border border-line bg-paper px-3.5 py-2 text-sm file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:bg-forest file:text-white file:text-xs file:font-semibold" style="color: #1A2E22 !important;" type="file" name="banner" id="banner">
+                    <input class="w-full rounded-lg border @error('banner') border-red-500 @else border-line @enderror bg-paper px-3.5 py-2 text-sm file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:bg-forest file:text-white file:text-xs file:font-semibold" style="color: #1A2E22 !important;" type="file" name="banner" id="banner">
+                    @error('banner')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label class="block text-base font-semibold mb-1.5" for="service_type" style="color: #1A2E22 !important;">सेवा प्रकार</label>
-                    <select class="w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" name="service_type" id="service_type">
-                        <option selected disabled value="" style="color: #1A2E22 !important;">एउटा विकल्प छान्नुहोस्</option>
-                        <option value="one_week" style="color: #1A2E22 !important;">१ हप्ता / रु १,५००</option>
-                        <option value="one_month" style="color: #1A2E22 !important;">१ महिना / रु ५,०००</option>
-                        <option value="one_year" style="color: #1A2E22 !important;">१ वर्ष / रु ५०,०००</option>
+                    <select class="w-full rounded-lg border @error('service_type') border-red-500 @else border-line @enderror bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" name="service_type" id="service_type">
+                        <option value="" disabled {{ old('service_type') ? '' : 'selected' }} style="color: #1A2E22 !important;">एउटा विकल्प छान्नुहोस्</option>
+                        <option value="one_week" {{ old('service_type') == 'one_week' ? 'selected' : '' }} style="color: #1A2E22 !important;">१ हप्ता / रु १,५००</option>
+                        <option value="one_month" {{ old('service_type') == 'one_month' ? 'selected' : '' }} style="color: #1A2E22 !important;">१ महिना / रु ५,०००</option>
+                        <option value="one_year" {{ old('service_type') == 'one_year' ? 'selected' : '' }} style="color: #1A2E22 !important;">१ वर्ष / रु ५०,०००</option>
                     </select>
+                    @error('service_type')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="sm:col-span-2">
                     <label class="block text-base font-semibold mb-1.5" for="message" style="color: #1A2E22 !important;">सन्देश</label>
-                    <textarea class="w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" name="message" id="message" cols="30" rows="6"></textarea>
+                    <textarea class="w-full rounded-lg border @error('message') border-red-500 @else border-line @enderror bg-paper px-3.5 py-2.5 text-base focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest" style="color: #1A2E22 !important;" name="message" id="message" cols="30" rows="6">{{ old('message') }}</textarea>
+                    @error('message')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <button class="sm:col-span-2 py-3.5 rounded-lg font-semibold text-lg bg-forest text-white hover:bg-forest-dark transition-colors" type="submit">
                     फारम पेश गर्नुहोस्

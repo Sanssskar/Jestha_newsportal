@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0d51e11a5200e9ef08f9eba0e5f125c",
+    "content-hash": "e72529a28cc412745ac73a0fafb992f9",
     "packages": [
         {
             "name": "anuzpandey/laravel-nepali-date",
@@ -5436,6 +5436,78 @@
                 }
             ],
             "time": "2026-04-27T14:27:52+00:00"
+        },
+        {
+            "name": "sudam-shrestha/sudam-sweet-alert",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sudam-shrestha/sudam-sweet-alert.git",
+                "reference": "86e5e2456d9a5ec9f362b8665203f46cf355762e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sudam-shrestha/sudam-sweet-alert/zipball/86e5e2456d9a5ec9f362b8665203f46cf355762e",
+                "reference": "86e5e2456d9a5ec9f362b8665203f46cf355762e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^10.0||^11.0||^12.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9",
+                "laravel/pint": "^1.14",
+                "nunomaduro/collision": "^8.1",
+                "orchestra/testbench": "^9.0.0||^10.0.0",
+                "pestphp/pest": "^3.0",
+                "pestphp/pest-plugin-arch": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan-deprecation-rules": "^1.2",
+                "phpstan/phpstan-phpunit": "^1.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "SudamSweetAlert": "Sudam\\SudamSweetAlert\\Facades\\SudamSweetAlert"
+                    },
+                    "providers": [
+                        "Sudam\\SudamSweetAlert\\SudamSweetAlertServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sudam\\SudamSweetAlert\\": "src/",
+                    "Sudam\\SudamSweetAlert\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sudam Shrestha",
+                    "email": "sudamshrestha939@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is my package sudam-sweet-alert",
+            "homepage": "https://github.com/sudam-shrestha/sudam-sweet-alert",
+            "keywords": [
+                "Sudam",
+                "laravel",
+                "sudam-sweet-alert"
+            ],
+            "support": {
+                "issues": "https://github.com/sudam-shrestha/sudam-sweet-alert/issues",
+                "source": "https://github.com/sudam-shrestha/sudam-sweet-alert/tree/v0.1.1"
+            },
+            "time": "2026-07-14T01:55:12+00:00"
         },
         {
             "name": "symfony/clock",

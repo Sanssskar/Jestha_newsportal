@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('company_name')->nullable();
             $table->string('banner')->nullable();
-            $table->enum('service_type',['one_day','one_month','one_year']);
+            $table->enum('service_type',['one_week','one_month','one_year']);
             $table->string('message');
 
             $table->timestamps();
