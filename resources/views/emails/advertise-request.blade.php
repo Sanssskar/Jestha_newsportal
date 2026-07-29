@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title>नयाँ विज्ञापन अनुरोध</title>
 </head>
-<body style="font-family: sans-serif; background:#F5F1EA; padding: 24px; color:#1A2E22;">
+<body style="font-family: sans-serif; background:#F5F1EA; padding: 24px; color:#0F172A;">
     <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e1d8;">
-        <div style="background:#1A2E22;padding:18px 24px;">
+        <div style="background:#1E3A5F;padding:18px 24px;">
             <h2 style="color:#ffffff;margin:0;font-size:18px;">नयाँ विज्ञापन अनुरोध प्राप्त भयो</h2>
         </div>
         <div style="padding:24px;">

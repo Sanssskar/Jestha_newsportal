@@ -16,9 +16,9 @@
                         <h1 class="font-headline text-4xl sm:text-5xl font-bold leading-tight mt-5 group-hover:text-forest transition-colors">
                             {{ $heroArticle->title }}
                         </h1>
-                        <p class="text-base text-black mt-3 flex items-center gap-2">
+                        <p class="text-base text-ink mt-3 flex items-center gap-2">
                             <i class="fa-regular fa-calendar-days text-forest"></i>
-                            <span class="text-black">{{ toNepaliDate($heroArticle->created_at->format('Y-m-d')) }}</span>
+                            <span class="text-ink">{{ toNepaliDate($heroArticle->created_at->format('Y-m-d')) }}</span>
                         </p>
                     </a>
 
@@ -31,7 +31,7 @@
                                     <h3 class="font-headline text-lg font-semibold leading-snug group-hover:text-forest transition-colors line-clamp-3">
                                         {{ $article->title }}
                                     </h3>
-                                    <p class="text-sm text-black mt-2 flex items-center gap-1.5">
+                                    <p class="text-sm text-ink mt-2 flex items-center gap-1.5">
                                         <i class="fa-regular fa-calendar-days text-forest"></i>
                                         <span>{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</span>
                                     </p>
@@ -75,9 +75,9 @@
                                 <h3 class="font-headline text-2xl font-semibold text-ink group-hover:text-forest transition-colors">
                                     {{ $latest_cat_art->title }}
                                 </h3>
-                                <p class="text-sm text-black mt-2 flex items-center gap-1.5">
+                                <p class="text-sm text-ink mt-2 flex items-center gap-1.5">
                                     <i class="fa-regular fa-calendar-days text-forest"></i>
-                                    <span class="text-black">{{ toNepaliDate($latest_cat_art->created_at->format('Y-m-d')) }}</span>
+                                    <span class="text-ink">{{ toNepaliDate($latest_cat_art->created_at->format('Y-m-d')) }}</span>
                                 </p>
                             </div>
                         </a>
@@ -91,9 +91,9 @@
                                         <h3 class="text-base font-semibold leading-snug group-hover:text-forest transition-colors line-clamp-2">
                                             {{ $article->title }}
                                         </h3>
-                                        <small class="text-sm text-black mt-1.5 inline-flex items-center gap-1">
+                                        <small class="text-sm text-ink mt-1.5 inline-flex items-center gap-1">
                                             <i class="fa-regular fa-calendar-days text-forest"></i>
-                                            <span class="text-black">{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</span>
+                                            <span class="text-ink">{{ toNepaliDate($article->created_at->format('Y-m-d')) }}</span>
                                         </small>
                                     </div>
                                 </a>

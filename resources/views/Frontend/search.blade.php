@@ -10,18 +10,18 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto mb-14">
                 <div class="rounded-2xl border border-line p-6 text-center hover:border-forest transition-colors">
                     <p class="text-base text-muted mb-1">१ दिन</p>
-                    <p class="font-headline text-4xl font-bold" style="color: #1A2E22 !important;">रु १,५००</p>
+                    <p class="font-headline text-4xl font-bold text-ink">रु १,५००</p>
                     <p class="text-sm text-muted mt-2">परीक्षणका लागि उपयुक्त</p>
                 </div>
                 <div class="rounded-2xl border-2 border-marigold bg-marigold-soft p-6 text-center relative">
                     <span class="absolute -top-3 left-1/2 -translate-x-1/2 tag-chip bg-marigold text-ink">लोकप्रिय</span>
                     <p class="text-base text-muted mb-1">१ महिना</p>
-                    <p class="font-headline text-4xl font-bold" style="color: #1A2E22 !important;">रु २५,०००</p>
+                    <p class="font-headline text-4xl font-bold text-ink">रु २५,०००</p>
                     <p class="text-sm text-muted mt-2">सबैभन्दा बढी रुचाइएको</p>
                 </div>
                 <div class="rounded-2xl border border-line p-6 text-center hover:border-forest transition-colors">
                     <p class="text-base text-muted mb-1">१ वर्ष</p>
-                    <p class="font-headline text-4xl font-bold" style="color: #1A2E22 !important;">रु २,५०,०००</p>
+                    <p class="font-headline text-4xl font-bold text-ink">रु २,५०,०००</p>
                     <p class="text-sm text-muted mt-2">लामो अवधिको छुट</p>
                 </div>
             </div>

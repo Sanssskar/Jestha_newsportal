@@ -6,23 +6,28 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Hind', 'Noto Sans Devanagari', ui-sans-serif, system-ui, sans-serif;
-    --font-serif: 'Tiro Devanagari Sanskrit', 'Noto Serif Devanagari', ui-serif, Georgia, serif;
+    --font-sans: 'Inter', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Merriweather', 'Georgia', ui-serif, serif;
 
-    --color-ink: #1A2E22;
+    --color-primary: #1E3A5F;
+    --color-primary-dark: #14283F;
+    --color-primary-light: #DCE8F5;
+    --color-primary-soft: #EEF4FB;
+
+    --color-ink: #0F172A;
     --color-paper: #FFFFFF;
-    --color-sand: #F5F1E6;
-    --color-forest: #15803D;
-    --color-forest-dark: #0F5C2C;
-    --color-forest-light: #DCFCE7;
-    --color-marigold: #D97706;
-    --color-marigold-soft: #FEF3C7;
-    --color-line: #DDD7C4;
-    --color-muted: #57534E;
+    --color-sand: #F7F9FC;
+    --color-forest: #1E3A5F;
+    --color-forest-dark: #14283F;
+    --color-forest-light: #DCE8F5;
+    --color-marigold: #C9972F;
+    --color-marigold-dark: #A67A1F;
+    --color-marigold-soft: #FBF2DF;
+    --color-line: #E2E8F0;
+    --color-muted: #64748B;
 
-    --color-primary: #15803D;
-    --color-dark-primary: #0F5C2C;
-    --color-text: #1A2E22;
+    --color-text: #0F172A;
+    --color-dark-primary: #14283F;
 }
 
 @import "flowbite/src/themes/default";
@@ -70,7 +75,7 @@
         font-size: 0.95rem;
         font-weight: 700;
         letter-spacing: 0.03em;
-        color: var(--color-forest);
+        color: var(--color-marigold-dark);
     }
 
     .bud-mark {
@@ -85,7 +90,7 @@
     .card-article:hover {
         transform: translateY(-3px);
         border-color: var(--color-forest);
-        box-shadow: 0 12px 28px -14px rgba(26, 46, 34, 0.3);
+        box-shadow: 0 12px 28px -14px rgba(30, 58, 95, 0.3);
     }
 
     .tag-chip {
@@ -95,17 +100,29 @@
         font-size: 0.85rem;
         font-weight: 700;
         letter-spacing: 0.01em;
-        color: var(--color-forest-dark);
-        background: var(--color-forest-light);
+        color: var(--color-marigold-dark);
+        background: var(--color-marigold-soft);
         padding: 0.3rem 0.75rem;
         border-radius: 999px;
     }
 }
 
-span,
-small {
-    color: var(--color-ink);
+
+@layer utilities {
+    .prose-article,
+    .prose-article :where(*):not(a) {
+        color: var(--color-ink) !important;
+        background-color: transparent !important;
+    }
+
+    .prose-article a {
+        background-color: transparent !important;
+    }
+    .prose-article [style*="color"] {
+        color: var(--color-ink) !important;
+    }
 }
+
 button{
     cursor: pointer;
 }

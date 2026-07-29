@@ -29,7 +29,7 @@
                 </div>
             </form>
 
-            <div class="hidden sm:flex items-center gap-2 text-base text-muted shrink-0">
+            <div class="hidden sm:flex items-center gap-2 text-base text-ink shrink-0">
                 <i class="fa-regular fa-calendar text-forest"></i>
                 <span>{{ toNepaliDate(now()->format('Y-m-d')) }}</span>
             </div>

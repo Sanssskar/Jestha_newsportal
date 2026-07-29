@@ -22,9 +22,9 @@
                                 <h2 class="font-headline text-2xl font-semibold text-ink group-hover:text-forest transition-colors">
                                     {{ $article->title }}
                                 </h2>
-                                <p class="text-base text-muted line-clamp-2">{!! Str::limit(strip_tags($article->description), 120, '...') !!}</p>
+                                <p class="text-base text-ink line-clamp-2">{!! Str::limit(strip_tags($article->description), 120, '...') !!}</p>
                                 <div class="flex items-center justify-between pt-1">
-                                    <small class="text-sm text-muted flex items-center gap-1.5">
+                                    <small class="text-sm text-ink flex items-center gap-1.5">
                                         <i class="fa-solid fa-calendar-days text-forest"></i>
                                         {{ toNepaliDate($article->created_at->format('Y-m-d')) }}
                                     </small>

@@ -7,7 +7,7 @@
                     <path d="M16 15C16 8.373 21.373 3 28 3c0 6.627-5.373 12-12 12Z" fill="currentColor" opacity="0.9"/>
                     <path d="M16 15C16 8.373 10.627 3 4 3c0 6.627 5.373 12 12 12Z" fill="currentColor" opacity="0.55"/>
                 </svg>
-                <span class="font-headline text-xl font-bold" style="color: #D97706 !important;">कोपिला मिडिया हाउस</span>
+                <span class="font-headline text-xl font-bold text-marigold">कोपिला मिडिया हाउस</span>
             </div>
             <p class="text-base text-white/70 leading-relaxed">
                 विश्वसनीय, ताजा र निष्पक्ष समाचार तपाईंसम्म पुर्‍याउने हाम्रो प्रतिबद्धता।
@@ -20,7 +20,7 @@
         </div>
 
         <div>
-            <h3 class="eyebrow text-marigold mb-4 text-base" style="color: #D97706 !important;">छिटो लिंकहरू</h3>
+            <h3 class="eyebrow text-marigold mb-4 text-base">छिटो लिंकहरू</h3>
             <ul class="space-y-3 text-base text-white/80">
                 <li><a class="hover:text-white transition-colors" href="{{ route('home') }}">गृहपृष्ठ</a></li>
                 <li><a class="hover:text-white transition-colors" href="{{ route('contact') }}">विज्ञापनको लागि सम्पर्क</a></li>
@@ -28,7 +28,7 @@
         </div>
 
         <div>
-            <h3 class="eyebrow text-marigold mb-4 text-base" style="color: #D97706 !important;">श्रेणीहरू</h3>
+            <h3 class="eyebrow text-marigold mb-4 text-base">श्रेणीहरू</h3>
             <ul class="space-y-3 text-base text-white/80">
                 @foreach ($categories as $category)
                     <li><a class="hover:text-white transition-colors" href="{{ route('category', $category->slug) }}">{{ $category->title }}</a></li>
@@ -37,11 +37,11 @@
         </div>
 
         <div>
-            <h3 class="eyebrow text-marigold mb-4 text-base" style="color: #D97706 !important;">सम्पर्क</h3>
+            <h3 class="eyebrow text-marigold mb-4 text-base">सम्पर्क</h3>
             <ul class="space-y-3 text-base text-white/80">
-                <li class="flex items-center gap-2"><i class="fa-regular fa-envelope" style="color: #D97706 !important;"></i> <span style="color: rgba(255,255,255,0.8) !important;">info@kopilamedia.com</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-phone" style="color: #D97706 !important;"></i> <span style="color: rgba(255,255,255,0.8) !important;">+977-1-XXXXXXX</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot" style="color: #D97706 !important;"></i> <span style="color: rgba(255,255,255,0.8) !important;">नेपाल</span></li>
+                <li class="flex items-center gap-2"><i class="fa-regular fa-envelope text-marigold"></i> <span class="text-white/80">info@kopilamedia.com</span></li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-marigold"></i> <span class="text-white/80">+977-1-XXXXXXX</span></li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-marigold"></i> <span class="text-white/80">नेपाल</span></li>
             </ul>
         </div>
     </div>

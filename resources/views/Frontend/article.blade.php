@@ -7,7 +7,7 @@
                         <span class="flex items-center gap-1.5 font-semibold text-ink">
                             <i class="fa-solid fa-user text-forest"></i>{{ $article->author_name }}
                         </span>
-                        <span class="flex items-center gap-1.5">
+                        <span class="flex items-center gap-1.5 text-ink">
                             <i class="fa-solid fa-calendar-days text-forest"></i>
                             प्रकाशित मितिः {{ toNepaliDate($article->created_at->format('Y-m-d')) }}
                         </span>
