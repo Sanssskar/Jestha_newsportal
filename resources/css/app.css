@@ -102,10 +102,12 @@
     }
 }
 
-/* Make span and small text black using variable */
 span,
 small {
     color: var(--color-ink);
+}
+button{
+    cursor: pointer;
 }
 
 @media print {
