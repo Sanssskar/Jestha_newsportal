@@ -46,12 +46,18 @@
     <nav class="hidden sm:block bg-forest">
         <div
             class="container flex items-center gap-6 py-2.5 overflow-x-auto text-paper text-base font-semibold whitespace-nowrap">
-            <a class="hover:text-marigold transition-colors" href="{{ route('home') }}">गृहपृष्ठ</a>
+            <a class="hover:text-marigold transition-colors {{ request()->routeIs('home') ? 'text-marigold' : '' }}"
+                href="{{ route('home') }}"
+                @if (request()->routeIs('home')) aria-current="page" @endif>गृहपृष्ठ</a>
             @foreach ($categories as $category)
-                <a class="hover:text-marigold transition-colors"
-                    href="{{ route('category', $category->slug) }}">{{ $category->title }}</a>
+                @php $isActiveCategory = request()->routeIs('category') && request()->route('slug') === $category->slug; @endphp
+                <a class="hover:text-marigold transition-colors {{ $isActiveCategory ? 'text-marigold' : '' }}"
+                    href="{{ route('category', $category->slug) }}"
+                    @if ($isActiveCategory) aria-current="page" @endif>{{ $category->title }}</a>
             @endforeach
-            <a class="hover:text-marigold transition-colors ms-auto" href="{{ route('contact') }}">
+            <a class="hover:text-marigold transition-colors ms-auto {{ request()->routeIs('contact') ? 'text-marigold' : '' }}"
+                href="{{ route('contact') }}"
+                @if (request()->routeIs('contact')) aria-current="page" @endif>
                 <i class="fa-solid fa-rectangle-ad me-1"></i>सम्पर्क
             </a>
         </div>
@@ -59,12 +65,18 @@
 
     <div id="mobile-menu" class="sm:hidden hidden border-t border-line bg-paper">
         <div class="container py-3 flex flex-col gap-1 text-ink font-semibold">
-            <a class="py-2.5 border-b border-line text-lg" href="{{ route('home') }}">गृहपृष्ठ</a>
+            <a class="py-2.5 border-b text-lg {{ request()->routeIs('home') ? 'border-forest text-forest' : 'border-line' }}"
+                href="{{ route('home') }}"
+                @if (request()->routeIs('home')) aria-current="page" @endif>गृहपृष्ठ</a>
             @foreach ($categories as $category)
-                <a class="py-2.5 border-b border-line text-lg"
-                    href="{{ route('category', $category->slug) }}">{{ $category->title }}</a>
+                @php $isActiveCategoryMobile = request()->routeIs('category') && request()->route('slug') === $category->slug; @endphp
+                <a class="py-2.5 border-b text-lg {{ $isActiveCategoryMobile ? 'border-forest text-forest' : 'border-line' }}"
+                    href="{{ route('category', $category->slug) }}"
+                    @if ($isActiveCategoryMobile) aria-current="page" @endif>{{ $category->title }}</a>
             @endforeach
-            <a class="py-2.5 border-b border-line text-lg" href="{{ route('contact') }}">सम्पर्क</a>
+            <a class="py-2.5 border-b text-lg {{ request()->routeIs('contact') ? 'border-forest text-forest' : 'border-line' }}"
+                href="{{ route('contact') }}"
+                @if (request()->routeIs('contact')) aria-current="page" @endif>सम्पर्क</a>
             <form class="pt-3" action="{{ route('search') }}" method="GET">
                 <div class="relative">
                     <input type="search" name="q"

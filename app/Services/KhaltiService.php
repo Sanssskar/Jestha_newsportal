@@ -33,7 +33,7 @@ class KhaltiService
         return $response->json();
     }
 
- 
+
     public function lookup(string $pidx): array
     {
         $response = Http::withHeaders([
