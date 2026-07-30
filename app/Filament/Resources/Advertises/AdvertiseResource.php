@@ -18,7 +18,7 @@ class AdvertiseResource extends Resource
 {
     protected static ?string $model = Advertise::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::Bell;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Megaphone;
     protected static ?string $pluralLabel = "Advertisement";
     protected static ?int $navigationSort = 3;
     protected static ?string $recordTitleAttribute = 'company_name';

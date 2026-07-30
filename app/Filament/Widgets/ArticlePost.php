@@ -11,14 +11,13 @@ class ArticlePost extends ChartWidget
     protected ?string $heading = 'Articles Published';
 
     protected static ?int $sort = 2;
-    protected int | string | array $columnSpan = 'full';
+    protected int | string | array $columnSpan = 1;
 
-    // Optional: Allow user to filter by year
-    public ?int $year = null;
+    public ?string $filter = null;
 
     protected function getData(): array
     {
-        $year = $this->year ?? Carbon::now()->year;
+        $year = (int) ($this->filter ?? Carbon::now()->year);
 
         $data = $this->getArticlesPerMonth($year);
 
@@ -27,10 +26,12 @@ class ArticlePost extends ChartWidget
                 [
                     'label' => "Articles in {$year}",
                     'data' => $data['counts'],
-                    'backgroundColor' => '#10b981',   // Emerald color
-                    'borderColor' => '#10b981',
+                    // NOTE: swap these for your exact brand hex (navy / gold) from tailwind.config
+                    'backgroundColor' => '#1e3a5f',
+                    'borderColor' => '#1e3a5f',
                     'borderWidth' => 2,
                     'tension' => 0.3,
+                    'fill' => false,
                 ],
             ],
             'labels' => $data['months'],
@@ -39,7 +40,7 @@ class ArticlePost extends ChartWidget
 
     protected function getType(): string
     {
-        return 'bar';        // Change to 'line' if you prefer
+        return 'line';
     }
 
     /**
@@ -65,16 +66,18 @@ class ArticlePost extends ChartWidget
         ];
     }
 
-    // Optional: Add filter to switch years
+    /**
+     * Offer every year that actually has articles, newest first,
+     * so the filter is only ever useful (not just the current year).
+     */
     protected function getFilters(): ?array
     {
-        $currentYear = Carbon::now()->year;
-        $options = [];
+        $years = Article::selectRaw('DISTINCT YEAR(created_at) as year')
+            ->orderByDesc('year')
+            ->pluck('year', 'year')
+            ->map(fn ($year) => (string) $year)
+            ->toArray();
 
-        for ($y = $currentYear; $y <= $currentYear; $y++) {
-            $options[$y] = (string) $y;
-        }
-
-        return $options;
+        return $years ?: [Carbon::now()->year => (string) Carbon::now()->year];
     }
 }

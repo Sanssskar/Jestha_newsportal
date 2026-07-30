@@ -5,13 +5,13 @@ namespace App\Filament\Widgets;
 use App\Models\Advertise;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Contact;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Support\Carbon;
 
 class StatsOverview extends StatsOverviewWidget
 {
-    // ✅ Correct way - NOT static
     protected ?string $pollingInterval = '15s';
 
     protected function getStats(): array
@@ -20,10 +20,16 @@ class StatsOverview extends StatsOverviewWidget
 
         $totalCategories = Category::count();
         $totalArticles   = Article::count();
-        $totalAdvertises = Advertise::count();
 
-        $todayArticles   = Article::whereDate('created_at', $now->toDateString())->count();
-        $todayAdvertises = Advertise::whereDate('created_at', $now->toDateString())->count();
+        $todayArticles = Article::whereDate('created_at', $now->toDateString())->count();
+
+        $activeAdvertises = Advertise::where('status', true)
+            ->where('expiry_date', '>=', $now)
+            ->count();
+
+        $pendingRequests = Contact::where('payment_status', 'pending')->count();
+
+        $totalRevenue = Contact::where('payment_status', 'paid')->sum('payment_amount');
 
         return [
             Stat::make('Total Categories', $totalCategories)
@@ -38,11 +44,21 @@ class StatsOverview extends StatsOverviewWidget
                 ->descriptionIcon('heroicon-o-arrow-trending-up')
                 ->chart($this->getArticleTrend()),
 
-            Stat::make('Total Advertises', $totalAdvertises)
+            Stat::make('Active Advertises', $activeAdvertises)
                 ->icon('heroicon-o-megaphone')
                 ->color('warning')
-                ->description($todayAdvertises . ' today')
-                ->descriptionIcon('heroicon-o-arrow-trending-up'),
+                ->description(Advertise::count() . ' total placed'),
+
+            Stat::make('Pending Requests', $pendingRequests)
+                ->icon('heroicon-o-clock')
+                ->color($pendingRequests > 0 ? 'danger' : 'gray')
+                ->description($pendingRequests > 0 ? 'Awaiting payment/approval' : 'All caught up')
+                ->descriptionIcon($pendingRequests > 0 ? 'heroicon-o-exclamation-circle' : 'heroicon-o-check-circle'),
+
+            Stat::make('Advertise Revenue', 'Rs. ' . number_format($totalRevenue))
+                ->icon('heroicon-o-banknotes')
+                ->color('success')
+                ->description('Total collected via Khalti'),
         ];
     }
 

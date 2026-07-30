@@ -13,15 +13,21 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Override;
 
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Envelope;
+    protected static ?string $pluralLabel ="Ad Request";
+    protected static ?int $navigationSort =4;
     protected static ?string $recordTitleAttribute = 'name';
-
+    #[Override]
+    public static function canCreate(): bool
+    {
+        return false;
+    }
     public static function form(Schema $schema): Schema
     {
         return ContactForm::configure($schema);

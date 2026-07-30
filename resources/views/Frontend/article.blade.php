@@ -27,7 +27,7 @@
 
                 <aside class="mt-10 lg:mt-0">
                     <div class="sticky top-24 flex flex-col gap-4">
-                        <span class="eyebrow"><i class="fa-regular fa-rectangle-ad"></i> प्रायोजित</span>
+                        <span class="eyebrow"><i class="fa-solid fa-rectangle-ad"></i> प्रायोजित</span>
                         @foreach ($advertises as $advertise)
                             <a href="{{ $advertise->redirect_link }}" target="_blank" class="block rounded-xl overflow-hidden border border-line hover:shadow-lg transition-shadow">
                                 <img class="w-full hover:scale-[1.02] transition-transform duration-300"

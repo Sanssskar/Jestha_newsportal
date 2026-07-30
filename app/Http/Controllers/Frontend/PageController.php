@@ -29,12 +29,14 @@ class PageController extends Controller
     public function home()
     {
         $latest_articles = Article::query()->where("status", true)->latest()->take(5)->get();
-        return view('Frontend.home', compact('latest_articles'));
+        $advertises = Advertise::query()->where("expiry_date", ">=", time())->get();
+
+        return view('Frontend.home', compact('latest_articles','advertises'));
     }
     public function category($slug)
     {
         $category = Category::query()->where("slug", $slug)->first();
-        $advertises = Advertise::query()->where("expiry_date", ">=", time())->get();
+        $advertises = Advertise::query()->where("expiry_date", ">=", time())->where("status",true)->get();
         return view('Frontend.category', compact('category', 'advertises'));
     }
     public function search(Request $request)

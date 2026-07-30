@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Contacts\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -24,8 +25,7 @@ class ContactsTable
                     ->searchable(),
                 TextColumn::make('company_name')
                     ->searchable(),
-                TextColumn::make('banner')
-                    ->searchable(),
+                ImageColumn::make('banner'),
                 TextColumn::make('service_type')
                     ->badge(),
                 TextColumn::make('payment_amount')
