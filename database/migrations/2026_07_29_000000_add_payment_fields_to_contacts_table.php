@@ -9,14 +9,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('contacts', function (Blueprint $table) {
-            // Mirrors whatever Khalti reports: pending, completed, or failed
             $table->enum('payment_status', ['pending', 'completed', 'failed'])
                 ->default('pending')
                 ->after('message');
 
             $table->string('khalti_pidx')->nullable()->after('payment_status');
             $table->string('khalti_transaction_id')->nullable()->after('khalti_pidx');
-            $table->unsignedInteger('payment_amount')->nullable()->after('khalti_transaction_id'); // NPR (rupees)
+            $table->unsignedInteger('payment_amount')->nullable()->after('khalti_transaction_id'); 
         });
     }
 

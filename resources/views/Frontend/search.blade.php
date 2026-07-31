@@ -9,7 +9,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2 flex flex-col gap-5">
                     @forelse ($articles as $article)
-                        <a href="{{ route('article', $article->slug) }}"
+                         <a href="{{ route('article', $article->slug) }}"
                             class="group card-article grid grid-cols-1 sm:grid-cols-3 gap-4 bg-paper border border-line rounded-2xl overflow-hidden p-3">
                             <img class="h-[200px] sm:h-full object-cover w-full rounded-xl"
                                 src="{{ asset(Storage::url($article->image)) }}" alt="{{ $article->title }} Image">
@@ -17,9 +17,9 @@
                                 <h2 class="font-headline text-2xl font-semibold text-ink group-hover:text-forest transition-colors">
                                     {{ $article->title }}
                                 </h2>
-                                <p class="text-base text-muted line-clamp-2">{!! Str::limit(strip_tags($article->description), 120, '...') !!}</p>
+                                <p class="text-base text-ink line-clamp-2">{!! Str::limit(strip_tags($article->description), 120, '...') !!}</p>
                                 <div class="flex items-center justify-between pt-1">
-                                    <small class="text-sm text-muted flex items-center gap-1.5">
+                                    <small class="text-sm text-ink flex items-center gap-1.5">
                                         <i class="fa-solid fa-calendar-days text-forest"></i>
                                         {{ toNepaliDate($article->created_at->format('Y-m-d')) }}
                                     </small>

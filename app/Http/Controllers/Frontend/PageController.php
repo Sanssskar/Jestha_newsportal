@@ -100,7 +100,7 @@ class PageController extends Controller
 
         Mail::to(User::query()->first())->send(new AdvertiseRequestMail($contact));
 
-        // Kick off Khalti payment
+     
         try {
             $response = $khalti->initiate([
                 'return_url'          => route('khalti.callback'),
